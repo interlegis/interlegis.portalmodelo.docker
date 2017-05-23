@@ -1,0 +1,18 @@
+version: "2"
+services:
+  plone:
+    build: .
+    environment:
+      ZEO_ADDRESS: zeoserver:8100
+    ports:
+      - 8080:8080
+    depends_on:
+    - zeoserver
+
+  zeoserver:
+    image: plone/zeoserver:latest
+    volumes:
+      - data:/data
+
+volumes:
+  data:
