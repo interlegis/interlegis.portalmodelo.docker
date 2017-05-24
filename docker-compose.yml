@@ -1,7 +1,8 @@
 version: "2"
 services:
   plone:
-    build: .
+    #build: .
+    image: interlegis/portalmodelo:3.0
     environment:
       ZEO_ADDRESS: zeoserver:8100
     ports:
@@ -10,7 +11,7 @@ services:
     - zeoserver
 
   zeoserver:
-    image: plone/zeoserver:latest
+    image: plone/zeoserver:2.13.23
     volumes:
       - data:/data
 
