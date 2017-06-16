@@ -2,16 +2,23 @@ version: "2"
 services:
   plone:
     #build: .
-    image: interlegis/portalmodelo:3.0
+    image: interlegis/portalmodelo:3.0-2
     environment:
       ZEO_ADDRESS: zeoserver:8100
+      ZEO_SHARED_BLOB_DIR: 'on'
     ports:
       - 8080:8080
     depends_on:
     - zeoserver
+    volumes:
+      - data:/data
 
   zeoserver:
-    image: plone/zeoserver:2.13.23
+    #build: .
+    image: interlegis/portalmodelo:3.0-2
+    command: zeoserver
+    environment:
+      ZEO_SHARED_BLOB_DIR: 'on'
     volumes:
       - data:/data
 
