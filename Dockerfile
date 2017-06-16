@@ -5,6 +5,7 @@ MAINTAINER "Fabio Rauber" <fabiorauber@gmail.com>
 USER root
 
 COPY site.cfg /plone/instance/
+
 RUN apt-get update && \
     buildDeps="python-setuptools python-dev build-essential libssl-dev libjpeg62-turbo-dev libldap2-dev libsasl2-dev libbz2-dev libreadline6-dev libxml2-dev libxslt1-dev wget sudo" && \ 
     apt-get install -y --no-install-recommends $buildDeps && \
@@ -34,3 +35,5 @@ RUN apt-get update && \
     chown -R plone:plone /plone /data 
 
 USER plone
+
+COPY sitecustomize.py /plone/Python-2.7/lib/python2.7/
