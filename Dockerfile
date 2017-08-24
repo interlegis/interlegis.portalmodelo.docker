@@ -37,3 +37,5 @@ RUN apt-get update && \
 USER plone
 
 COPY sitecustomize.py /plone/Python-2.7/lib/python2.7/
+
+COPY parliamentarian.py /plone/buildout-cache/eggs/interlegis.portalmodelo.pl-1.0rc2-py2.7.egg/interlegis/portalmodelo/pl/browser/ 
