@@ -30,6 +30,7 @@ version: '2'
 services:
   plone:
     image: interlegis/portalmodelo:3.0-5
+    restart: always
     environment:
       ZEO_ADDRESS: zeoserver:8100
       ZEO_SHARED_BLOB_DIR: 'on'
@@ -42,6 +43,7 @@ services:
       - 8080:8080
   zeoserver:
     image: interlegis/portalmodelo:3.0-5
+    restart: always
     command: zeoserver
     environment:
       ZEO_SHARED_BLOB_DIR: 'on'
