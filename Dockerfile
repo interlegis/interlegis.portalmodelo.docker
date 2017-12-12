@@ -6,6 +6,7 @@ USER root
 
 COPY site.cfg /plone/instance/
 COPY portalmodelo-versions.cfg /plone/instance/
+COPY warmup.ini /plone/instance/
 
 RUN apt-get update && \
     buildDeps="python-setuptools python-dev build-essential libssl-dev libjpeg62-turbo-dev libldap2-dev libsasl2-dev libbz2-dev libreadline6-dev libxml2-dev libxslt1-dev wget sudo" && \ 
