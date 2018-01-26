@@ -1,4 +1,5 @@
-FROM interlegis/plone:4.3.6
+#FROM interlegis/plone:4.3.6
+FROM plone:4.3.15
 
 MAINTAINER "Fabio Rauber" <fabiorauber@gmail.com>
 
@@ -9,7 +10,7 @@ COPY portalmodelo-versions.cfg /plone/instance/
 COPY warmup.ini /plone/instance/
 
 RUN apt-get update && \
-    buildDeps="python-setuptools python-dev build-essential libssl-dev libjpeg62-turbo-dev libldap2-dev libsasl2-dev libbz2-dev libreadline6-dev libxml2-dev libxslt1-dev libmysqlclient-dev wget sudo" && \ 
+    buildDeps="python-setuptools python-dev build-essential libssl-dev libjpeg62-turbo-dev libldap2-dev libsasl2-dev libbz2-dev libreadline6-dev libxml2-dev libxslt1-dev libmysqlclient-dev libsnappy-dev wget sudo" && \ 
     apt-get install -y --no-install-recommends $buildDeps && \
     apt-get install -y --no-install-recommends \
       readline-common \
