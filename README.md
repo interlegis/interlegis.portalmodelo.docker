@@ -29,7 +29,7 @@ Salve o seguinte trecho como  docker-compose.yml no diretório de sua preferênc
 version: '2'
 services:
   plone:
-    image: interlegis/portalmodelo:3.0-5
+    image: interlegis/portalmodelo:3.0-12
     restart: always
     environment:
       ZEO_ADDRESS: zeoserver:8100
@@ -42,7 +42,7 @@ services:
     ports:
       - 8080:8080
   zeoserver:
-    image: interlegis/portalmodelo:3.0-5
+    image: interlegis/portalmodelo:3.0-12
     restart: always
     command: zeoserver
     environment:
