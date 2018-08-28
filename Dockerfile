@@ -8,6 +8,11 @@ COPY site.cfg /plone/instance/
 COPY portalmodelo-versions.cfg /plone/instance/
 COPY warmup.ini /plone/instance/
 
+ADD cfg_portal.py /plone/instance/
+ADD configure.cfg /plone/instance/
+ADD upgrades.cfg /plone/instance/
+COPY configure.sh /
+
 RUN apt-get update && \
     buildDeps="python-setuptools python-dev build-essential libssl-dev libjpeg62-turbo-dev libldap2-dev libsasl2-dev libbz2-dev libreadline6-dev libxml2-dev libxslt1-dev libmysqlclient-dev wget sudo" && \ 
     apt-get install -y --no-install-recommends $buildDeps && \
