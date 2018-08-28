@@ -2,7 +2,7 @@ version: "2"
 services:
   plone:
     #build: .
-    image: interlegis/portalmodelo:3.0-12
+    image: interlegis/portalmodelo:3.0-13
     restart: always
     environment:
       ZEO_ADDRESS: zeoserver:8100
@@ -17,11 +17,25 @@ services:
 
   zeoserver:
     #build: .
-    image: interlegis/portalmodelo:3.0-12
+    image: interlegis/portalmodelo:3.0-13
     restart: always
     command: zeoserver
     environment:
       ZEO_SHARED_BLOB_DIR: 'on'
+    volumes:
+      - data:/data
+
+  plonecfg:
+    #build: .
+    image: interlegis/portalmodelo:3.0-13
+    environment:
+      ZEO_ADDRESS: zeoserver:8100
+      EMAIL: "contato@tecnico.leg.br"
+      PASSWORD: "adminpw"
+      TITLE: "Câmara Municipal"
+      DESCR: "Teste - DF"
+      HOSTNAME: "teste.df.leg.br"
+    entrypoint: "/configure.sh"
     volumes:
       - data:/data
 
