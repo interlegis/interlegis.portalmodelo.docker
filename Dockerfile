@@ -21,6 +21,9 @@ RUN apt-get update && \
       python-imaging \
       python-docutils \
       python-psycopg2 \
+      python-magic \
+      libsnappy-dev \
+      python-snappy \
       xpdf \
       xsltproc \
       pdftohtml \
