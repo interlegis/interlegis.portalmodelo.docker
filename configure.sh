@@ -8,7 +8,6 @@ DESCR=${DESCR:-"O Portal das Casas Legislativas"}
 SMTP_SERVER=${SMTP_SERVER:-"smtp.dominio.leg.br"}
 SMTP_PORT=${SMTP_PORT:-"25"}
 ROOTPWD=${ROOTPWD:-"adminpw"}
-ZEO_ADDRESS=${ZEO_ADDRESS:-"zeoserver:8100"}
 
 sed -i "s/%EMAIL%/${EMAIL}/g" cfg_portal.py
 sed -i "s/%PASSWORD%/${PASSWORD}/g" cfg_portal.py
@@ -44,5 +43,12 @@ if [ ! -e "/data/.upgrade-3.0-12" ]; then
   bin/buildout -c upgrades.cfg && cd /plone/instance && \
   ./bin/upgrade-portals --username admin --upgrade-profile interlegis.portalmodelo.policy:default && \
   echo "Successfully upgraded Portal to version 3.0-12." | tee /data/.upgrade-3.0-12
+fi
+
+if [ ! -e "/data/.upgrade-3.0-16" ]; then
+  echo "Upgrading Portal to version 3.0-16..."
+  bin/buildout -c upgrades.cfg && cd /plone/instance && \
+  ./bin/upgrade-portals --username admin --upgrade-profile interlegis.portalmodelo.policy:default && \
+  echo "Successfully upgraded Portal to version 3.0-16." | tee /data/.upgrade-3.0-16
 fi
 
