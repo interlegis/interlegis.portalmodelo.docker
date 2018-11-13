@@ -45,10 +45,11 @@ if [ ! -e "/data/.upgrade-3.0-12" ]; then
   echo "Successfully upgraded Portal to version 3.0-12." | tee /data/.upgrade-3.0-12
 fi
 
-if [ ! -e "/data/.upgrade-3.0-16" ]; then
-  echo "Upgrading Portal to version 3.0-16..."
+if [ ! -e "/data/.upgrade-3.0-17" ]; then
+  echo "Upgrading Portal to version 3.0-17..."
   bin/buildout -c upgrades.cfg && cd /plone/instance && \
   ./bin/upgrade-portals --username admin --upgrade-profile interlegis.portalmodelo.policy:default && \
-  echo "Successfully upgraded Portal to version 3.0-16." | tee /data/.upgrade-3.0-16
+  ./bin/upgrade-portals --username admin --upgrade-profile interlegis.portalmodelo.theme:default && \
+  echo "Successfully upgraded Portal to version 3.0-17." | tee /data/.upgrade-3.0-17
 fi
 
