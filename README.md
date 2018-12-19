@@ -25,7 +25,7 @@ Salve o seguinte trecho como  docker-compose.yml no diretório de sua preferênc
 version: '2'
 services:
   plone:
-    image: interlegis/portalmodelo:3.0-13
+    image: interlegis/portalmodelo:3.0-18
     restart: always
     environment:
       ZEO_ADDRESS: zeoserver:8100
@@ -39,7 +39,7 @@ services:
      - data:/data
 
   zeoserver:
-    image: interlegis/portalmodelo:3.0-13
+    image: interlegis/portalmodelo:3.0-18
     restart: always
     command: zeoserver
     environment:
@@ -48,7 +48,7 @@ services:
       - data:/data
 
   plonecfg:
-    image: interlegis/portalmodelo:3.0-13
+    image: interlegis/portalmodelo:3.0-18
     environment:
       ZEO_ADDRESS: zeoserver:8100
       EMAIL: "contato@tecnico.leg.br"
