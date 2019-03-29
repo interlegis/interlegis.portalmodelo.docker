@@ -14,7 +14,7 @@ ADD upgrades.cfg /plone/instance/
 COPY configure.sh /
 
 RUN apt-get update && \
-    buildDeps="python-setuptools python-dev build-essential libssl-dev libjpeg62-turbo-dev libldap2-dev libsasl2-dev libbz2-dev libreadline6-dev libxml2-dev libxslt1-dev libmysqlclient-dev wget sudo" && \ 
+    buildDeps="python-setuptools python-dev build-essential libssl-dev libjpeg62-turbo-dev libldap2-dev libsasl2-dev libbz2-dev libreadline6-dev libxml2-dev libxslt1-dev default-libmysqlclient-dev wget sudo" && \ 
     apt-get install -y --no-install-recommends $buildDeps && \
     apt-get install -y --no-install-recommends \
       readline-common \
@@ -33,8 +33,8 @@ RUN apt-get update && \
       lynx \
       links \
       elinks && \
-    wget http://ftp.br.debian.org/debian/pool/main/x/xlhtml/xlhtml_0.5.1-6_amd64.deb -P /tmp && \
-    wget http://ftp.br.debian.org/debian/pool/main/x/xlhtml/ppthtml_0.5.1-6_amd64.deb -P /tmp && \
+    wget http://archive.debian.org/debian/pool/main/x/xlhtml/xlhtml_0.5.1-6_amd64.deb -P /tmp && \
+    wget http://archive.debian.org/debian/pool/main/x/xlhtml/ppthtml_0.5.1-6_amd64.deb -P /tmp && \
     dpkg -i /tmp/xlhtml_0.5.1-6_amd64.deb && \   
     dpkg -i /tmp/ppthtml_0.5.1-6_amd64.deb && \   
     sudo -u plone bin/buildout -c site.cfg && \
