@@ -18,7 +18,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends $buildDeps && \
     apt-get install -y --no-install-recommends \
       readline-common \
-      python-imaging \
+      python-pil \
       python-docutils \
       python-psycopg2 \
       python-magic \
