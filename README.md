@@ -7,12 +7,32 @@ Containers docker para o Portal Modelo
 
 Para usar esta imagem você precisa ter o Docker daemon instalado. Verifique a documentação em https://docs.docker.com/install/
 
+Instalação do Docker
+
+No terminal digite o comando abaixo para se tornar usuário root:
+  
+  sudo -s
+
+Para instalar o Docker em sua máquina, rode o comando:
+
+  curl -ssl https://get.docker.com | sh
+
+Verifique se o Docker foi devidamente instalado, digitando o seguinte domando no terminal.
+
+  docker ps
+
+O retorno do comando acima, caso o Docker esteja devidamente instalado será algo como:
+
+CONTAINER ID        IMAGE               COMMAND             CREATED         STATUS              PORTS               NAMES
+
+
+
 ### Docker-compose
 
 O Docker-compose é desejável (rode como root): 
 
 ```
-curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+curl -L https://github.com/docker/compose/releases/download/1.25.5/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 
 chmod +x /usr/local/bin/docker-compose
 ```
@@ -22,10 +42,10 @@ chmod +x /usr/local/bin/docker-compose
 Salve o seguinte trecho como  docker-compose.yml no diretório de sua preferência. Preencha as variáveis no container plonecfg, para a configuração inicial do Portal Modelo: 
 
 ```
-version: '2'
+version: '3'
 services:
   plone:
-    image: interlegis/portalmodelo:3.0-19
+    image: interlegis/portalmodelo:3.0-21
     restart: always
     environment:
       ZEO_ADDRESS: zeoserver:8100
@@ -39,7 +59,7 @@ services:
      - data:/data
 
   zeoserver:
-    image: interlegis/portalmodelo:3.0-19
+    image: interlegis/portalmodelo:3.0-21
     restart: always
     command: zeoserver
     environment:
@@ -48,7 +68,7 @@ services:
       - data:/data
 
   plonecfg:
-    image: interlegis/portalmodelo:3.0-19
+    image: interlegis/portalmodelo:3.0-21
     environment:
       ZEO_ADDRESS: zeoserver:8100
       EMAIL: "contato@tecnico.leg.br"
