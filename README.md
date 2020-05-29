@@ -10,21 +10,24 @@ Para usar esta imagem você precisa ter o Docker daemon instalado. Verifique a d
 Instalação do Docker
 
 No terminal digite o comando abaixo para se tornar usuário root:
-  
+```  
   sudo -s
+```
 
 Para instalar o Docker em sua máquina, rode o comando:
 
+```
   curl -ssl https://get.docker.com | sh
+```
 
 Verifique se o Docker foi devidamente instalado, digitando o seguinte domando no terminal.
-
+```
   docker ps
-
+```
 O retorno do comando acima, caso o Docker esteja devidamente instalado será algo como:
-
+```
 CONTAINER ID        IMAGE               COMMAND             CREATED         STATUS              PORTS               NAMES
-
+```
 
 
 ### Docker-compose
